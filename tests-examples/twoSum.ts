@@ -14,6 +14,8 @@
 
 function twoSum(nums: number[], target: number): number[] {
     let map = new Map<number, number>()
+
+    //https://stackoverflow.com/questions/43555904/foreach-for-in-not-returning-values
     for (let [index, num] of nums.entries()) {
         const complementIndex = map.get(target - num)
         if (complementIndex !== undefined)
