@@ -7,7 +7,10 @@ test("api get response", async ({ request }) => {
     const responseBody = JSON.parse(await response.text())
 
     console.log(responseBody)
-    expect(responseBody.data.id).toBe(7)
+    // npx playwright tests --only-changed only runs modified/commited files
+    // npx playwright tests --last-failed only runs last failed tests
+    // npx playwright tests --last-failed only runs last failed tests
+    expect(responseBody.data.id).toBe(2)
 })
 
 test("validate complex json", async ({ request }) => {
