@@ -1,12 +1,15 @@
 function countWords(sentence: string): Map<string, number> {
     let wordCount = new Map();
 
-    sentence.split(" ").forEach((word) => {
+    const regex = /[^\s]+/g;
+    const words = sentence.toLowerCase().match(regex);
 
-        if (wordCount.has(word))
-            wordCount.set(word, 2)
-        else
-            wordCount.set(word, 1)
+    if (!words || words.length === 0) {
+        return wordCount;
+    }
+
+    words.forEach((word) => {
+        wordCount.set(word, wordCount.get(word) ? wordCount.get(word) + 1 : 1);
     });
 
     return wordCount;
@@ -14,6 +17,6 @@ function countWords(sentence: string): Map<string, number> {
 }
 
 // Example usage
-const sentence = "This is a test. This test is simple!";
+const sentence = "This is a test This test is simple!";
 const result = countWords(sentence);
 console.log(result);
