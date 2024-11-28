@@ -13,18 +13,16 @@
 // Output: [1,2]
 
 function twoSum(nums: number[], target: number): number[] {
-    let map = new Map<number, number>()
+    const map = new Map<number, number>()
 
     //https://stackoverflow.com/questions/43555904/foreach-for-in-not-returning-values
     for (let [index, num] of nums.entries()) {
-        const complementIndex = map.get(target - num)
-        if (complementIndex !== undefined)
-            return [complementIndex, index]
-        else
-            map.set(num, index)
+        const complement = target - num
+        if (map.has(complement)) return [map.get(complement)!, index]
+        map.set(num, index)
     };
     return []
 }
 
-const nums = [2, 7, 11, 1]
-console.log(twoSum(nums, 9));  // Output: [2, 7] twoSum(nums, 9)
+const nums = [2, 6, 11, 1]
+console.log(twoSum(nums, 13));  // Output: [2, 7] twoSum(nums, 9)

@@ -13,8 +13,8 @@ test('web scrapping for the quotes', async ({ page }) => {
             q = q?.replace(/\s+/g, ' ')
             q = q?.replace(/["...\r\n]/g, '')
             q = q?.replace(/\s*([,.;?!:])\s*/g, '$1 ')
-            if (!arr.includes(q)) {
-                arr.push(q)
+            if (!arr.includes(q!)) {
+                arr.push(q!)
             }
         }
     }

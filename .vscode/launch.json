@@ -4,19 +4,30 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+        // {
+        //     "type": "node",
+        //     "request": "launch",
+        //     "name": "Debug typescript",
+        //     "skipFiles": [
+        //         "<node_internals>/**"
+        //     ],
+        //     "program": "${workspaceFolder}\\hands-on\\twoNums.ts",
+        //     "runtimeArgs": ["-r","ts-node/register","-r","tsconfig-paths/register"],
+        //     "console": "integratedTerminal",
+        //     "outFiles": [
+        //         "${workspaceFolder}/**/*.js"
+        //     ]
+        // },
         {
+            "name": "Run tsx in VSCode Debugger",
             "type": "node",
             "request": "launch",
-            "name": "Debug typescript",
-            "skipFiles": [
-                "<node_internals>/**"
-            ],
-            "program": "${workspaceFolder}\\hands-on\\twoNums.ts",
-            "runtimeArgs": ["-r","ts-node/register","-r","tsconfig-paths/register"],
-            "console": "integratedTerminal",
-            "outFiles": [
-                "${workspaceFolder}/**/*.js"
-            ]
-        }
+            "runtimeExecutable": "node",
+            "runtimeArgs": ["--loader", "tsx"],
+            "args": ["${file}"],
+            "cwd": "${workspaceRoot}",
+            "internalConsoleOptions": "openOnSessionStart",
+            "skipFiles": ["<node_internals>/**", "node_modules/**"]
+          }
     ]
 }
